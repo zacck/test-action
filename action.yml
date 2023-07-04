@@ -1,7 +1,5 @@
 name: 'Deploy yaml'
 description: 'Deploys a yaml file to a Lightning instance'
-inputs:
-  api_secret: ${{ secrets.OPENFN_API_KEY }}
 runs:
   using: "composite"
   steps:
@@ -14,8 +12,7 @@ runs:
         cache: 'npm'
       env: 
         FORCE_COLOR: 0
-        OPENFN_API_KEY: ${{ inputs.api_secret }}
-
+        OPENFN_API_KEY: ${{ secrets.OPENFN_API_KEY }}
     - run: npm install @openfn/cli
       shell: bash
     - run: openfn deploy -c config.json --no-confirm

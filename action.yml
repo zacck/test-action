@@ -17,7 +17,7 @@ runs:
         FORCE_COLOR: 0
         OPENFN_API_KEY: ${{ inputs.secret_input }}
     - run: |
-        npm install @openfn/cli
+        npm install -g @openfn/cli
         openfn deploy -c config.json --no-confirm
       shell: bash
 

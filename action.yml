@@ -10,12 +10,11 @@ runs:
       uses: actions/setup-node@v3
       with:
         api_secret: ${{ secrets.OPENFN_API_KEY }}
+        node-version: 18.x
+        cache: 'npm'
       env: 
         FORCE_COLOR: 0
         OPENFN_API_KEY: ${{ inputs.api_secret }}
-      with:
-        node-version: 18.x
-        cache: 'npm'
 
     - run: npm install @openfn/cli 
     - run: openfn deploy -c config.json --no-confirm

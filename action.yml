@@ -9,16 +9,20 @@ runs:
   steps:
     - name: Checkout Project export
       uses: actions/checkout@v3
+      working-directory: ./app
     - name: Set up Node
       uses: actions/setup-node@v3
+      working-directory: ./app
       with:
         node-version: 18.x
         cache: 'npm'
-        cache-dependency-path: 'package-lock.json'
+        cache-dependency-path: './app/package-lock.json'
       env: 
         FORCE_COLOR: 0
         OPENFN_API_KEY: ${{ inputs.secret_input }}
     - run: npm install @openfn/cli
+      working-directory: ./app
       shell: bash
     - run: openfn deploy -c config.json --no-confirm
+      working-directory: ./app
       shell: bash

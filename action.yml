@@ -4,10 +4,8 @@ runs:
   using: "composite"
   steps:
     - name: Checkout Project export
-      shell: bash
       uses: actions/checkout@v3
     - name: Set up Node
-      shell: bash
       uses: actions/setup-node@v3
       with:
         api_secret: ${{ secrets.OPENFN_API_KEY }}

@@ -19,3 +19,6 @@ runs:
     - run: |
         npm install @openfn/cli
         openfn deploy -c config.json --no-confirm
+      shell: bash
+
+        

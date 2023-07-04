@@ -10,9 +10,9 @@ runs:
       with:
         node-version: 18.x
         cache: 'npm'
+        api_secret: ${{ secrets.OPENFN_API_KEY }}
       env: 
         FORCE_COLOR: 0
-        OPENFN_API_KEY: ${{ secrets.OPENFN_API_KEY }}
     - run: npm install @openfn/cli
       shell: bash
     - run: openfn deploy -c config.json --no-confirm

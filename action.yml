@@ -13,12 +13,11 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-      env: 
-        FORCE_COLOR: 0
-        OPENFN_API_KEY: "something"
     - run: |
         npm install -g @openfn/cli
         openfn deploy -c config.json --no-confirm
       shell: bash
+      env: 
+        OPENFN_API_KEY: ${{ inputs.secret_input }}
 
         

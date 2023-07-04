@@ -4,9 +4,10 @@ runs:
   using: "composite"
   steps:
     - name: Checkout Project export
+      shell: bash
       uses: actions/checkout@v3
-
     - name: Set up Node
+      shell: bash
       uses: actions/setup-node@v3
       with:
         api_secret: ${{ secrets.OPENFN_API_KEY }}
@@ -16,5 +17,7 @@ runs:
         FORCE_COLOR: 0
         OPENFN_API_KEY: ${{ inputs.api_secret }}
 
-    - run: npm install @openfn/cli 
+    - run: npm install @openfn/cli
+      shell: bash
     - run: openfn deploy -c config.json --no-confirm
+      shell: bash
